@@ -227,13 +227,13 @@ src="https://www.facebook.com/tr?id=2046291495965109&ev=PageView&noscript=1"
 
 <script>
 document.getElementById('btn2').addEventListener('click', function() {
-  // 1. Copiar la llave
+  // Copiar la llave
   var copyText = document.getElementById('field2');
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   document.execCommand('copy');
   
-  // 2. Mostrar popup
+  // Mostrar popup
   var popup = document.getElementById('popup2');
   popup.style.opacity = '1';
   popup.style.visibility = 'visible';
@@ -242,99 +242,14 @@ document.getElementById('btn2').addEventListener('click', function() {
     popup.style.visibility = 'hidden';
   }, 2000);
   
-  // 3. 🔥 DISPARAR EVENTO LEAD CON PARÁMETROS
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', {
-      content_name: 'Donación Maria Paula',
-      content_category: 'Copia de llave',
-      value: 0,
-      currency: 'COP'
-    });
-    console.log('✅ Evento Lead disparado con parámetros');
-  } else {
-    console.warn('⚠️ fbq no está disponible');
-  }
+  // 🔥 DISPARAR EL EVENTO CON UN PEQUEÑO RETRASO
+  setTimeout(function() {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+      console.log('✅ Evento Lead disparado (con retraso)');
+    }
+  }, 300); // 300ms de retraso
 });
-</script>
-<script>
-// ============================================
-// NOTIFICACIONES FLOTANTES DE DONACIONES
-// ============================================
-
-// Lista de donaciones simuladas
-const donaciones = [
-  { nombre: 'Carlos M.', monto: '150.000' },
-  { nombre: 'Ana G.', monto: '50.000' },
-  { nombre: 'Laura S.', monto: '200.000' },
-  { nombre: 'Jorge R.', monto: '80.000' },
-  { nombre: 'María F.', monto: '120.000' },
-  { nombre: 'Pedro L.', monto: '35.000' },
-  { nombre: 'Sofía T.', monto: '70.000' },
-  { nombre: 'Luis A.', monto: '250.000' },
-  { nombre: 'Daniela P.', monto: '90.000' },
-  { nombre: 'Andrés M.', monto: '45.000' }
-];
-
-let indiceNotificacion = 0;
-
-function mostrarNotificacion() {
-  // Si ya mostramos todas, reiniciamos
-  if (indiceNotificacion >= donaciones.length) {
-    indiceNotificacion = 0;
-    // Limpiar el contenedor si quieres que empiece de nuevo
-    document.getElementById('notification-container').innerHTML = '';
-    return;
-  }
-
-  const donacion = donaciones[indiceNotificacion];
-  const container = document.getElementById('notification-container');
-
-  // Crear el elemento de notificación
-  const notificacion = document.createElement('div');
-  notificacion.className = 'notificacion-flotante';
-  notificacion.innerHTML = `
-    💚 ${donacion.nombre} acaba de donar COP $${donacion.monto}
-    <br>
-    <span style="font-size: 0.7rem; opacity: 0.7;">Hace un momento · vaki.co</span>
-  `;
-
-  // Estilos de la notificación
-  notificacion.style.cssText = `
-    background: white;
-    padding: 14px 18px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 0.9rem;
-    color: #1a1a1a;
-    border-left: 5px solid #8cc640;
-    animation: nIn 0.5s ease forwards;
-    pointer-events: auto;
-    line-height: 1.5;
-    font-weight: 500;
-  `;
-
-  // Agregar al contenedor
-  container.appendChild(notificacion);
-
-  // Eliminar después de 5 segundos
-  setTimeout(() => {
-    notificacion.style.animation = 'nOut 0.5s ease forwards';
-    setTimeout(() => {
-      if (notificacion.parentNode) {
-        notificacion.remove();
-      }
-    }, 500);
-  }, 5000);
-
-  indiceNotificacion++;
-}
-
-// Mostrar la primera notificación después de 2 segundos
-setTimeout(mostrarNotificacion, 2000);
-
-// Mostrar una notificación cada 8 segundos
-setInterval(mostrarNotificacion, 8000);
 </script>
 
 </body>

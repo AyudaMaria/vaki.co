@@ -242,13 +242,13 @@ document.getElementById('btn2').addEventListener('click', function() {
     popup.style.visibility = 'hidden';
   }, 2000);
   
-  // 🔥 DISPARAR EL EVENTO CON UN PEQUEÑO RETRASO
+  // 🔥 DISPARAR EL EVENTO LEAD CORRECTAMENTE
   setTimeout(function() {
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead');
-      console.log('✅ Evento Lead disparado (con retraso)');
+      console.log('Lead track ejecutado');
     }
-  }, 300); // 300ms de retraso
+  }, 300);
 });
 </script>
 

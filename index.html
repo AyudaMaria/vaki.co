@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang=es style>
+<html lang="es">
 <head>
-    <meta charset=utf-8>
-    <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name=description content="Ayuda a María Paula en su lucha contra el cáncer. Tiene 3 años y necesita atención médica en EE.UU. Cada donación suma.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Ayuda a María Paula en su lucha contra el cáncer. Tiene 3 años y necesita atención médica en EE.UU. Cada donación suma.">
     <title>Ayuda a María Paula | Juntos contra el cáncer</title>
-    <meta property=og:type content=website>
-    <meta property=og:url content=https://tudominio.com/>
-    <meta property=og:title content="Ayuda a María Paula a vencer el cáncer">
-    <meta property=og:description content="María Paula tiene 3 años y necesita atención médica en EE.UU. Cada donación, por pequeña que sea, suma.">
-    <meta property=og:image content=images/11.webp>
-    <meta name=twitter:card content=summary_large_image>
-    <meta name=twitter:title content="Ayuda a María Paula a vencer el cáncer">
-    <meta name=twitter:description content="María Paula tiene 3 años y necesita atención médica en EE.UU. Cada donación, por pequeña que sea, suma.">
-    <meta name=twitter:image content=images/11.webp>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/">
+    <meta property="og:title" content="Ayuda a María Paula a vencer el cáncer">
+    <meta property="og:description" content="María Paula tiene 3 años y necesita atención médica en EE.UU. Cada donación, por pequeña que sea, suma.">
+    <meta property="og:image" content="images/11.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ayuda a María Paula a vencer el cáncer">
+    <meta name="twitter:description" content="María Paula tiene 3 años y necesita atención médica en EE.UU. Cada donación, por pequeña que sea, suma.">
+    <meta name="twitter:image" content="images/11.webp">
 
-    <!-- Meta Pixel Code -->
+    <!-- META PIXEL - BIEN UBICADO -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,18 +28,17 @@
         fbq('init', '2046291495965109');
         fbq('track', 'PageView');
     </script>
-    <!-- El <noscript> debe ir justo después de tu código de inicialización, no dentro de <style> -->
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2046291495965109&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- FIN META PIXEL -->
 
     <style>
-        /* ... aquí va TODO tu CSS ... */
-        :root{--sf-img-3: url("data:image/webp;base64,...");
-        /* ... el resto de tu CSS ... */
+        /* AQUÍ VA TODO TU CSS */
+        :root{--sf-img-3: url("data:image/webp;base64,UklGRko3AwBXRUJQVk...
+        /* ... todo el resto de tu CSS ... */
         }
-        /* ... el resto de tu CSS ... */
+        /* ... incluyendo todas tus reglas CSS ... */
     </style>
 </head>
 <body>
@@ -237,31 +236,30 @@
 </div>
 
 <script>
-document.getElementById('btn2').addEventListener('click', function() {
-  // Copiar la llave
-  var copyText = document.getElementById('field2');
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand('copy');
-  
-  // Mostrar popup
-  var popup = document.getElementById('popup2');
-  popup.style.opacity = '1';
-  popup.style.visibility = 'visible';
-  setTimeout(function() {
-    popup.style.opacity = '0';
-    popup.style.visibility = 'hidden';
-  }, 2000);
-  
-  // 🔥 DISPARAR EL EVENTO LEAD CORRECTAMENTE
-  setTimeout(function() {
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead');
-      console.log('Lead track ejecutado');
-    }
-  }, 300);
-});
-</script>
-
+        document.getElementById('btn2').addEventListener('click', function() {
+            // Copiar la llave
+            var copyText = document.getElementById('field2');
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            // Mostrar popup
+            var popup = document.getElementById('popup2');
+            popup.style.opacity = '1';
+            popup.style.visibility = 'visible';
+            setTimeout(function() {
+                popup.style.opacity = '0';
+                popup.style.visibility = 'hidden';
+            }, 2000);
+            
+            // DISPARAR LEAD
+            setTimeout(function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead');
+                    console.log('Lead track ejecutado');
+                }
+            }, 300);
+        });
+    </script>
 </body>
 </html>

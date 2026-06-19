@@ -226,44 +226,33 @@ src="https://www.facebook.com/tr?id=2046291495965109&ev=PageView&noscript=1"
 </div>
 
 <script>
-// Función para copiar la llave y disparar el evento Lead
 document.getElementById('btn2').addEventListener('click', function() {
-  // 1. Obtener el campo de texto
+  // 1. Copiar la llave
   var copyText = document.getElementById('field2');
-  
-  // 2. Seleccionar el texto
   copyText.select();
-  copyText.setSelectionRange(0, 99999); // Para dispositivos móviles
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand('copy');
   
-  // 3. Copiar al portapapeles
-  try {
-    var successful = document.execCommand('copy');
-    if (successful) {
-      console.log('✅ Llave copiada correctamente');
-      
-      // 4. 🔥 DISPARAR EVENTO LEAD EN EL PIXEL DE META
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead');
-        console.log('✅ Evento Lead disparado en el Pixel de Meta');
-      } else {
-        console.warn('⚠️ El Pixel de Meta no está cargado');
-      }
-      
-      // 5. Mostrar el popup de confirmación
-      var popup = document.getElementById('popup2');
-      popup.style.opacity = '1';
-      popup.style.visibility = 'visible';
-      
-      // 6. Ocultar el popup después de 2 segundos
-      setTimeout(function() {
-        popup.style.opacity = '0';
-        popup.style.visibility = 'hidden';
-      }, 2000);
-    } else {
-      console.error('❌ No se pudo copiar la llave');
-    }
-  } catch (err) {
-    console.error('❌ Error al copiar:', err);
+  // 2. Mostrar popup
+  var popup = document.getElementById('popup2');
+  popup.style.opacity = '1';
+  popup.style.visibility = 'visible';
+  setTimeout(function() {
+    popup.style.opacity = '0';
+    popup.style.visibility = 'hidden';
+  }, 2000);
+  
+  // 3. 🔥 DISPARAR EVENTO LEAD CON PARÁMETROS
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'Donación Maria Paula',
+      content_category: 'Copia de llave',
+      value: 0,
+      currency: 'COP'
+    });
+    console.log('✅ Evento Lead disparado con parámetros');
+  } else {
+    console.warn('⚠️ fbq no está disponible');
   }
 });
 </script>
